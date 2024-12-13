@@ -78,8 +78,8 @@
     <!-- ui is outside of container-fluid and will be dynamically added to map -->
     <div class="form-group me-3 mt-3" id="dropdown-ui">
         <select class="form-control bg-primary text-white">
-            <option value="Hurricanes">Total amount of thunderstorms</option>
-            <option value="Thunderstorms">Total amount of hurricanes"</option>
+            <option value="Hurricanes">Total amount of hurricanes</option>
+            <option value="Thunderstorms">Total amount of thunderstorms"</option>
         </select>
     </div>
     <!-- end ui-controls -->
@@ -134,15 +134,14 @@
         }
 
         const labels = {
-            DP04_0091E: "Owner occupied units with a mortgage or loan",
-            DP04_0092E: "Occupied units owned free and clear",
-            DP04_0126E: "Number of units occupied by a renter"
+            Hurricanes: "Total amount of hurricanes",
+            Thunderstorms: "Total amount of thunderstorms",
         }
 
         // set global variables for map layer,
         // mapped attribute, and normalizing attribute
-        let attributeValue = "DP04_0126E";
-        const normValue = "DP04_0002E";
+        let attributeValue = "Hurricanes";
+        const normValue = "Thunderstorms";
 
         // Make the call to external data
         fetch("/assignment/acs_counties.geojson")
