@@ -139,8 +139,6 @@
             DP04_0126E: "Number of units occupied by a renter"
         }
 
-
-
         // set global variables for map layer,
         // mapped attribute, and normalizing attribute
         let attributeValue = "DP04_0126E";
@@ -314,8 +312,6 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}%`;
 
             // add the empty legend div to the map
             legendControl.addTo(map);
-
-
         }
 
         function updateLegend(breaks) {
@@ -365,7 +361,6 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}%`;
 
             });
         }
-
 
         map.addControl(L.control.zoom({ position: "topright" }));
     </script>
