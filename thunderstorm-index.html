@@ -79,7 +79,7 @@
     <div class="form-group me-3 mt-3" id="dropdown-ui">
         <select class="form-control bg-primary text-white">
             <option value="Hurricanes">Total amount of hurricanes</option>
-            <option value="Thunderstorms">Total amount of thunderstorms</option>
+            <option value="Thundergusts">Total amount of thundergusts</option>
         </select>
     </div>
     <!-- end ui-controls -->
@@ -135,7 +135,7 @@
 
         const labels = {
             Hurricanes: "Total amount of hurricanes",
-            Thunderstorms: "Total amount of thunderstorms",
+            Thundergusts: "Total amount of thundergusts"
         }
 
         // set global variables for map layer,
@@ -231,7 +231,7 @@
 
                 // assemble string sequence of info for tooltip (end line break with + operator)
                 let tooltipInfo = `<b>${props["NAME"]}</b></br>
-${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}%`;
+${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
 
                 // bind a tooltip to layer with county-specific information
                 layer.bindTooltip(tooltipInfo, {
@@ -329,7 +329,7 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}%`;
                     `<div class="d-flex flex-row justify-content-start">
       <span style="background:${color}"></span>
       <label>${(breaks[i][0] * 100).toFixed(1)} &mdash; 
-      ${(breaks[i][1] * 100).toFixed(1)}%</label>
+      ${(breaks[i][1] * 100).toFixed(1)}</label>
   </div>`
             }
         }
