@@ -14,7 +14,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@300;700&display=swap" rel="stylesheet" />
     <!-- Styles CSS -->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
     <!-- Dropdown CSS -->
     <link href="/css/dropdown.css" rel="stylesheet" />
 </head>
@@ -89,10 +89,10 @@
     <!-- ui is outside of container-fluid and will be dynamically added to map -->
     <div class="form-group me-3 mt-3" id="dropdown-ui">
         <select class="form-control bg-primary text-white">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+            <option value="Cloudburst">Total amount of cloudburst</option>
+            <option value="Downpour">Total amount of downpour</option>
+            <option value="Heavy_rain">Total amount of heavy rain</option>
+            <option value="Gully_washed">Total amount of Gully washers</option>
             <option value=""></option>
         </select>
     </div>
@@ -147,20 +147,19 @@
         }
 
         const labels = {
-            Hurricanes: "Total amount of hurricanes",
-            Thundergusts: "Total amount of thundergusts",
-            Thunderclouds: "Total amount of thunderclouds",
-            Thundershowers: "Total amount of thundershowers",
-            Thunderstorms: "Total amount of thunderstorms"
+            Cloudburst: "Total amount of cloudburst",
+            Downpour: "Total amount of downpour",
+            Heavy_rain: "Total amount of heavy rain",
+            Gully_washed: "Total amount of Gully washers"
         }
 
         // set global variables for map layer,
         // mapped attribute, and normalizing attribute
-        let attributeValue = "Hurricanes";
-        const normValue = "Thunderstorms";
+        let attributeValue = "Cloudbursts";
+        const normValue = "Downpour";
 
         // Make the call to external data
-        fetch("/geojson/heavyraintotal.geojson")
+        fetch("../rainy/geojson/heavyraintotal.geojson")
             .then(function (response) {
                 if (response.ok) {
                     return response.json();
