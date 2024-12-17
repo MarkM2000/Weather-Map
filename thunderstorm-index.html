@@ -122,11 +122,13 @@
 
     // get color depending on SackTotal value
     function getColor(d) {
-        return d > 90
-            ? "#FC4E2A"
-            : d > 70
-                ? "#FD8D3C"
-                : d > 50 ? "#FEB24C" : d > 30 ? "#FED976" : "#FFEDA0";
+        return d > 100
+            ? "#16171c"
+            : d > 80
+                ? "#49454d"
+                : d > 60
+                    ? "#4e5257"
+                    : d > 40 ? "#4f5b59" : d > 20 ? "#8795a3" : "#b8bdc2"; 
     }
 
     function style(feature) {
