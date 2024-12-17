@@ -75,6 +75,14 @@
         </div>
     </div>
 </body>
+<div class="form-group me-3 mt-3" id="dropdown-ui">
+    <select class="form-control bg-primary text-white">
+        <option value="Thunderstorms">Total amount of thunderstorms</option>
+        <option value="Thunderclouds">Total amount of thunderclouds</option>
+        <option value="Thundergusts">Total amount of thundergusts</option>
+        <option value="Thundershowers">Total amount of thundershowerss</option>
+    </select>
+</div>
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -85,6 +93,13 @@
 <!-- Thunderstorms JS File -->
 <script src="/js/thunderstorms.js"></script>
 <script>
+    const labels = {
+        Thunderstorms: "Total amount of thunderstorms",
+        Thunderclouds: "Total amount of thunderclouds",
+        Thundergusts: "Total amount of thundergusts",
+        Thundershowers: "Total amount of thundershowerss"
+    }
+
     var map = L.map('map', {
         zoomSnap: .1,
         center: [36, -90],
@@ -128,7 +143,7 @@
                 ? "#49454d"
                 : d > 60
                     ? "#4e5257"
-                    : d > 40 ? "#4f5b59" : d > 20 ? "#8795a3" : "#b8bdc2"; 
+                    : d > 40 ? "#4f5b59" : d > 20 ? "#8795a3" : "#b8bdc2";
     }
 
     function style(feature) {
