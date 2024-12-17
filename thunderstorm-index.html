@@ -14,9 +14,9 @@
     <link href="css/styles.css" rel="stylesheet" />
     <!-- Dropdown CSS -->
     <link href="css/dropdown.css" rel="stylesheet" />
-  </head>
-  
-  <body>
+</head>
+
+<body>
     <div class="container-fluid">
         <header class="row bg-dark text-white p-2">
             <div class="dropdown">
@@ -37,18 +37,18 @@
                 </p>
             </div>
         </header>
-  
+
         <section class="row">
             <div class="p-0">
                 <div id="map"></div>
             </div>
         </section>
-  
+
         <footer class="row bg-dark text-white p-2">
             <p class="text-center"></p>
         </footer>
     </div>
-  
+
     <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasExample"
         aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
@@ -57,60 +57,54 @@
         </div>
         <div class="offcanvas-body">
             <h3 class="py-2">Information</h3>
-            <p>This map shows the total number of thunderstorms in the states listed. West Virginia, according to the map, has
-                the most amount of thunderstorms out of the states listed on the map. But because "thunderstorms" is a regional dialect
-                word that is mostly used in the American South (especially the Appalachia) and refers to a simple sack
-                or bag, it is less common in everyday speech nationwide; most people would just say "bag" instead.</p>
-            <h3 class="py-2">Sources</h3>
+            <p></p>
+            <h3>The Impact Of Thunderstorms On The Environment</h3>
+            <p>Heavy rainfall from thunderstorms can lead to flooding, soil erosion, and infrastructure damage;
+                lightning strikes can start fires; and strong winds can harm crops and property. Nevertheless,
+                thunderstorms also bring beneficial rain for plants and can help fix nitrogen in the soil through
+                lightning activity.</p>
+            <h3>Sources</h3>
             <li>
-                <a href="https://ahdictionary.com/word/search.html?q=poke">American Heritage Dictionary (Poke)</a>
-            </li>
-            <li>
-                <a
-                    href="https://www.blueridgenow.com/story/news/2018/08/18/poke-groceries-in-bag-or-bag-them-in-poke/11018984007/">Poke
-                    the groceries in a bag — or bag them in a poke?</a>
-            </li>
-            <li>
-                <a href="https://www.youtube.com/watch?v=aX16EZU3rGg">Appalachian Traditional Poke Bags for
-                    Christmas!</a>
+                <a href="https://www.nssl.noaa.gov/education/svrwx101/thunderstorms/faq/">Thunderstorm FAQ - Severe
+                    Weather 101</a>
             </li>
             <ul class="list-unstyled">
                 <li>Authored by Mark Marji</li>
-                <li>November 26, 2024</li>
+                <li>December 10, 2024</li>
             </ul>
         </div>
     </div>
-  </body>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+</body>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <!-- Add Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+<!-- Add Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <!-- Thunderstorms JS File -->
-  <script src="/geojson/thunderstorms.geojson"></script>
-  <script>
+<!-- Thunderstorms JS File -->
+<script src="/geojson/thunderstorms.geojson"></script>
+<script>
     var map = L.map('map', {
         zoomSnap: .1,
         center: [36, -90],
         zoom: 4.5
     });
-  
+
     var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-  
+
     // control that shows state info on hover
     var info = L.control();
-  
+
     info.onAdd = function (map) {
         this._div = L.DomUtil.create("div", "info");
         this.update();
         return this._div;
     };
-  
+
     info.update = function (props) {
         this._div.innerHTML =
             "<h4>Thunderstorms</h4>" +
@@ -122,10 +116,10 @@
                 " total thunderstorms"
                 : "Hover over a state");
     };
-  
-  
+
+
     info.addTo(map);
-  
+
     // get color depending on SackTotal value
     function getColor(d) {
         return d > 90
@@ -134,7 +128,7 @@
                 ? "#FD8D3C"
                 : d > 50 ? "#FEB24C" : d > 30 ? "#FED976" : "#FFEDA0";
     }
-  
+
     function style(feature) {
         return {
             weight: 2,
@@ -145,35 +139,35 @@
             fillColor: getColor(feature.properties.Total)
         };
     }
-  
+
     function highlightFeature(e) {
         var layer = e.target;
-  
+
         layer.setStyle({
             weight: 5,
             color: "#666",
             dashArray: "",
             fillOpacity: 0.7
         });
-  
+
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
             layer.bringToFront();
         }
-  
+
         info.update(layer.feature.properties);
     }
-  
+
     var geojson;
-  
+
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
         info.update();
     }
-  
+
     function zoomToFeature(e) {
         map.fitBounds(e.target.getBounds());
     }
-  
+
     function onEachFeature(feature, layer) {
         layer.on({
             mouseover: highlightFeature,
@@ -181,29 +175,29 @@
             click: zoomToFeature
         });
     }
-  
+
     geojson = L.geoJson(Thunderstorms, {
         style: style,
         onEachFeature: onEachFeature
     }).addTo(map);
-  
+
     map.attributionControl.addAttribution(
         'Total data &copy; <a href="http://census.gov/">US Census Bureau</a>'
     );
-  
+
     var legend = L.control({ position: "bottomright" });
-  
+
     legend.onAdd = function (map) {
         var div = L.DomUtil.create("div", "info legend"),
             grades = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90],
             labels = [],
             from,
             to;
-  
+
         for (var i = 0; i < grades.length; i++) {
             from = grades[i];
             to = grades[i + 1];
-  
+
             labels.push(
                 '<i style="background:' +
                 getColor(from + 1) +
@@ -212,10 +206,10 @@
                 (to ? "&ndash;" + to : "+")
             );
         }
-  
+
         div.innerHTML = labels.join("<br>");
         return div;
     };
-  
+
     legend.addTo(map);
-  </script>
+</script>
