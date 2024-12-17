@@ -83,7 +83,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <!-- Thunderstorms JS File -->
-<script src="/geojson/thunderstorms.geojson"></script>
+<script src="/js/thunderstorms.js"></script>
 <script>
     var map = L.map('map', {
         zoomSnap: .1,
@@ -112,7 +112,7 @@
                 ? "<b>" +
                 props.NAME +
                 "</b><br />" +
-                props.Total +
+                props.Thunderstorms +
                 " total thunderstorms"
                 : "Hover over a state");
     };
@@ -176,7 +176,7 @@
         });
     }
 
-    geojson = L.geoJson(Thunderstorms, {
+    geojson = L.geoJson(thunderstorms, {
         style: style,
         onEachFeature: onEachFeature
     }).addTo(map);
