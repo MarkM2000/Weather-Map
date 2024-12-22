@@ -188,8 +188,8 @@
 
         function drawMap(data) {
             // create Leaflet data layer and add to map
-            const counties = L.geoJson(data, {
-                // style counties with initial default path options
+            const STUSPS = L.geoJson(data, {
+                // style STUSPS with initial default path options
                 style: function (feature) {
                     return {
                         color: "#20282e",
@@ -220,22 +220,22 @@
                 },
             }).addTo(map);
 
-            // fit the map's bounds and zoom level using the counties extent
-            map.fitBounds(counties.getBounds(), {
-                padding: [18, 18], // add padding around counties
+            // fit the map's bounds and zoom level using the STUSPS extent
+            map.fitBounds(STUSPS.getBounds(), {
+                padding: [18, 18], // add padding around STUSPS
                 animate: false, // disable animating the zoom
             });
 
             // addLegend(); // add the legend to the map
-            updateMap(counties); // draw the map
-            addUi(counties); // add UI controls
+            updateMap(STUSPS); // draw the map
+            addUi(STUSPS); // add UI controls
         }
 
-        function updateMap(counties) {
-            let breaks = getClassBreaks(counties);
+        function updateMap(STUSPS) {
+            let breaks = getClassBreaks(STUSPS);
 
             // loop through each county layer to update the color and tooltip info
-            counties.eachLayer(function (layer) {
+            STUSPS.eachLayer(function (layer) {
                 let props = layer.feature.properties;
 
                 // set the fill color of layer based on its normalized data value
@@ -259,12 +259,12 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
         }
 
         // Get class breaks in data
-        function getClassBreaks(counties) {
+        function getClassBreaks(STUSPS) {
             // create empty Array for storing values
             const values = [];
 
-            // loop through all the counties
-            counties.eachLayer(function (layer) {
+            // loop through all the STUSPS
+            STUSPS.eachLayer(function (layer) {
                 let value =
                     layer.feature.properties[attributeValue] /
                     layer.feature.properties[normValue];
@@ -348,7 +348,7 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
             }
         }
 
-        function addUi(counties) {
+        function addUi(STUSPS) {
             // create the slider control
             var selectControl = L.control({ position: "topright" });
 
@@ -370,7 +370,7 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
                 attributeValue = e.target.value;
 
                 // update the map
-                updateMap(counties);
+                updateMap(STUSPS);
 
             });
         }
