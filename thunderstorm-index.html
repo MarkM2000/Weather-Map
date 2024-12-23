@@ -268,15 +268,15 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
             // which color value to return to return to the function caller
 
             if (d <= breaks[0][1]) {
-                return "#16171c";
+                return "#b8bdc2";
             } else if (d <= breaks[1][1]) {
-                return "#49454d";
-            } else if (d <= breaks[2][1]) {
-                return "#4e5257";
-            } else if (d <= breaks[3][1]) {
                 return "#4f5b59";
+            } else if (d <= breaks[2][1]) {
+                return "#49454D";
+            } else if (d <= breaks[3][1]) {
+                return "#16171c";
             } else if (d <= breaks[4][1]) {
-                return "#8795a3";
+                return "#b8bdc2";
             }
         }
 
