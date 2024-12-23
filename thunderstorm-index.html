@@ -170,10 +170,10 @@
                 // style STUSPS with initial default path options
                 style: function (feature) {
                     return {
-                        color: "#20282e",
+                        color: "#16171c",
                         weight: 0.7,
                         fillOpacity: 1,
-                        fillColor: "#1f78b4",
+                        fillColor: "#16171c",
                     };
                 },
                 // add hover/touch functionality to each feature layer
@@ -192,7 +192,7 @@
                     layer.on("mouseout", function () {
                         // reset the layer style to its original stroke color
                         layer.setStyle({
-                            color: "#20282e",
+                            color: "#16171c",
                         });
                     });
                 },
@@ -268,15 +268,15 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
             // which color value to return to return to the function caller
 
             if (d <= breaks[0][1]) {
-                return "#f7fbff";
+                return "#16171c";
             } else if (d <= breaks[1][1]) {
-                return "#c8dcf0";
+                return "#49454d";
             } else if (d <= breaks[2][1]) {
-                return "#73b2d8";
+                return "#4e5257";
             } else if (d <= breaks[3][1]) {
-                return "#2979b9";
+                return "#4f5b59";
             } else if (d <= breaks[4][1]) {
-                return "#1c4e7a";
+                return "#8795a3";
             }
         }
 
