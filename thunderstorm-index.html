@@ -81,10 +81,10 @@
     <!-- ui is outside of container-fluid and will be dynamically added to map -->
     <div class="form-group me-3 mt-3" id="dropdown-ui">
         <select class="form-control bg-primary text-white">
-            <option value="Changing">Changing total</option>
-            <option value="Clouding_up">Clouding up total</option>
-            <option value="Clouds">Clouds total</option>
-            <option value="Threatening">Threatening total</option>
+            <option value="Thunderstorms">Total amount of thunderstorms</option>
+            <option value="Thunderclouds">Total amount of thunderclouds</option>
+            <option value="Thundergusts">Total amount of thundergusts</option>
+            <option value="Thundershowers">Total amount of thundershowers</option>
         </select>
     </div>
     <!-- end ui-controls -->
@@ -138,19 +138,19 @@
         }
 
         const labels = {
-            Changing: "Changing total",
-            Clouding_up: "Clouding up total",
-            Clouds: "Clouds total",
-            Threatening: "Threatening total"
+            Thunderstorms: "Total amount of thunderstorms",
+            Thunderclouds: "Total amount of thunderclouds",
+            Thundergusts: "Total amount of thundergusts",
+            Thundershowers: "Total amount of thundershowers"
         }
 
         // set global variables for map layer,
         // mapped attribute, and normalizing attribute
-        let attributeValue = "Changing";
+        let attributeValue = "Thunderstorms";
         const normValue = "Informants";
 
         // Make the call to external data
-        fetch("../cloudy/geojson/cloudytotal.geojson")
+        fetch("../geojson/thunderstorms.geojson")
             .then(function (response) {
                 if (response.ok) {
                     return response.json();
