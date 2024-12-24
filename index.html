@@ -262,22 +262,22 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
             return breaks;
         }
 
-        // Get color of county
+        // Get color
         function getColor(d, breaks) {
             // function accepts a single normalized data attribute value
             // and uses a series of conditional statements to determine which
             // which color value to return to return to the function caller
 
             if (d <= breaks[0][1]) {
-                return "#b8bdc2";
+                return "#f7fbff";
             } else if (d <= breaks[1][1]) {
-                return "#4f5b59";
+                return "#c8dcf0";
             } else if (d <= breaks[2][1]) {
-                return "#49454D";
+                return "#73b2d8";
             } else if (d <= breaks[3][1]) {
-                return "#16171c";
+                return "#2979b9";
             } else if (d <= breaks[4][1]) {
-                return "#b8bdc2";
+                return "#1c4e7a";
             }
         }
 
