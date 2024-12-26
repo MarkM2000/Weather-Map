@@ -62,7 +62,7 @@
         </div>
         <div class="offcanvas-body">
             <h3 class="py-2">Information</h3>
-            <p>This page shows a seris of choropleth maps that focuses on rain. The stuff that is included in this map are the total amount of cloudburst, downpour, heavy rain, gully washers, and squall. The total amount is in decimals, which is because of the "breaks" feature of the index.</p>
+            <p>This page shows a seris of choropleth maps that focuses on rain. The stuff that is included in this ma are the total amount of cloudburst, downpour, heavy rain, gully washers, and squall. The total amount is in decimals, which is because of the "breaks" feature of the index.</p>
             <h3>The Impact Of Rain On The Environment</h3>
             <p>By restoring water supplies, sustaining ecosystems, and controlling temperatures, rain is essential to environmental sustainability. However, too much or contaminated rainfall can have detrimental effects such as soil erosion, water pollution, and harm to aquatic life, especially when it carries pollutants from cities through stormwater runoff.</p>
             <h3>Sources</h3>
@@ -135,9 +135,9 @@
         // create Leaflet map and apply options
         const map = L.map("map", options);
 
-        var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        var tiles = L.tileLayer('https://tile.openstreetmap.bzh/ca/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles courtesy of <a href="https://www.openstreetmap.cat" target="_blank">Breton OpenStreetMap Team</a>'
         }).addTo(map);
 
         // Example of keeping your page fresh
