@@ -128,9 +128,11 @@
         // create Leaflet map and apply options
         const map = L.map("map", options);
 
-        var tiles = L.tileLayer('https://tile.openstreetmap.bzh/ca/{z}/{x}/{y}.png', {
+        var tiles = L.tileLayer('http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png?appid={apiKey}', {
             maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles courtesy of <a href="https://www.openstreetmap.cat" target="_blank">Breton OpenStreetMap Team</a>'
+            attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
+            apiKey: '<insert your api key here>',
+            opacity: 0.5
         }).addTo(map);
 
         // Example of keeping your page fresh
