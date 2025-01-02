@@ -231,7 +231,7 @@
 
                 // assemble string sequence of info for tooltip (end line break with + operator)
                 let tooltipInfo = `<b>${props["NAME"]}</b></br>
-${((props[attributeValue])).toLocaleString()}`;
+${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
 
                 // bind a tooltip to layer with county-specific information
                 layer.bindTooltip(tooltipInfo, {
@@ -252,7 +252,8 @@ ${((props[attributeValue])).toLocaleString()}`;
             // loop through all the STUSPS
             STUSPS.eachLayer(function (layer) {
                 let value =
-                    layer.feature.properties[attributeValue]
+                    layer.feature.properties[attributeValue] /
+                    layer.feature.properties[normValue];
                 values.push(value); // push the normalized value for each layer into the Array
             });
 
@@ -328,7 +329,7 @@ ${((props[attributeValue])).toLocaleString()}`;
                     `<div class="d-flex flex-row justify-content-start">
       <span style="background:${color}"></span>
       <label>${(breaks[i][0] * 50).toFixed(1)} &mdash; 
-      ${(breaks[i][1]).toFixed(1)}</label>
+      ${(breaks[i][1] * 50).toFixed(1)}</label>
   </div>`
             }
         }
