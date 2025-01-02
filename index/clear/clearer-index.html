@@ -232,7 +232,7 @@
 
                 // assemble string sequence of info for tooltip (end line break with + operator)
                 let tooltipInfo = `<b>${props["NAME"]}</b></br>
-${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
+${((props[attributeValue])).toLocaleString()}`;
 
                 // bind a tooltip to layer with county-specific information
                 layer.bindTooltip(tooltipInfo, {
