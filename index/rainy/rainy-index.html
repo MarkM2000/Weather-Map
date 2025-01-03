@@ -232,12 +232,12 @@
 
                 // set the fill color of layer based on its normalized data value
                 layer.setStyle({
-                    fillColor: getColor(props[attributeValue] / props[normValue], breaks),
+                    fillColor: getColor(props[attributeValue], breaks),
                 });
 
                 // assemble string sequence of info for tooltip (end line break with + operator)
                 let tooltipInfo = `<b>${props["NAME"]}</b></br>
-${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
+${((props[attributeValue])).toLocaleString()}`;
 
                 // bind a tooltip to layer with county-specific information
                 layer.bindTooltip(tooltipInfo, {
@@ -258,8 +258,7 @@ ${((props[attributeValue] / props[normValue]) * 100).toLocaleString()}`;
             // loop through all the STUSPS
             STUSPS.eachLayer(function (layer) {
                 let value =
-                    layer.feature.properties[attributeValue] /
-                    layer.feature.properties[normValue];
+                    layer.feature.properties[attributeValue]
                 values.push(value); // push the normalized value for each layer into the Array
             });
 
