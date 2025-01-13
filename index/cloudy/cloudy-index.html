@@ -274,7 +274,7 @@ ${((props[attributeValue])).toLocaleString()}`;
             // and uses a series of conditional statements to determine which
             // which color value to return to return to the function caller
 
-            if (d <= breaks[0][1]) {
+            if (d <= breaks[0][0]) {
                 return "#ffffff";
             } else if (d <= breaks[0][1]) {
                 return "#f7fbff";
